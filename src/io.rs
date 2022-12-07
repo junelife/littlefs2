@@ -2,7 +2,7 @@
 
 pub mod prelude;
 
-use littlefs2_sys as ll;
+use littlefs_sys as ll;
 
 /// The `Read` trait allows for reading bytes from a file.
 pub trait Read {
