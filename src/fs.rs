@@ -4,7 +4,7 @@ use core::{cell::RefCell, cmp, mem, slice};
 
 use bitflags::bitflags;
 use generic_array::typenum::marker_traits::Unsigned;
-use littlefs_sys as ll;
+use littlefs2_sys as ll;
 use serde::{Deserialize, Serialize};
 
 // so far, don't need `heapless-bytes`.
@@ -110,9 +110,7 @@ impl<Storage: driver::Storage> Allocation<Storage> {
         // limitation of ll-bindings
         assert!(attr_max == 1_022);
         // limitation of ll-bindings
-        // metadata_max defaults to block_size when zero
         let metadata_max = 0;
-        assert!(metadata_max <= block_size);
 
         let config = ll::lfs_config {
             context: core::ptr::null_mut(),

@@ -15,17 +15,20 @@ bitflags = "1"
 cty = "0.2.1"
 delog = "0.1.0"
 generic-array = "0.14"
+heapless = "0.7"
 
-littlefs-sys.workspace = true
-#  serde.workspace = true
-cstr_core.workspace = true
-heapless.workspace = true
+[dependencies.cstr_core]
+default-features = false
+version = "0.2"
+
+[dependencies.littlefs2-sys]
+version = "0.1.6"
 
 [target.'cfg(target_os = "espidf")'.dependencies]
-esp-idf-sys.workspace = true
+esp-idf-sys = { version = "0.31", default-features = false, features = ["std", "binstart", "native"] }
 
 [build-dependencies]
-build-tools.workspace = true
+build-tools = { path = "common/build-tools" }
 
 [dependencies.serde]
 version = "1"
@@ -43,9 +46,9 @@ default = ["dir-entry-path", "serde"]
 # use experimental closure-based API
 dir-entry-path = []
 # enable assertions in backend C code
-# ll-assertions = ["littlefs-sys/assertions"]
+ll-assertions = ["littlefs2-sys/assertions"]
 # enable trace in backend C code
-# ll-trace = ["littlefs-sys/trace"]
+ll-trace = ["littlefs2-sys/trace"]
 c-stubs = []
 
 log-all = []

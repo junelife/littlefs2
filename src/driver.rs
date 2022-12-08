@@ -2,7 +2,7 @@
 #![allow(non_camel_case_types)]
 
 use generic_array::ArrayLength;
-use littlefs_sys as ll;
+use littlefs2_sys as ll;
 
 use crate::{
     io::Result,
