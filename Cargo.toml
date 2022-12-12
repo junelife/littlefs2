@@ -22,14 +22,19 @@ default-features = false
 version = "0.2"
 
 # TODO: not sure if I should use a version here when the dependency is determined by a branch.
-[dependencies.littlefs2-sys]
-version = "0.1.6"
+#  [dependencies.littlefs2-sys]
+#  version = "0.1.6"
+[dependencies.littlefs-sys]
+version = "0.1.0"
 
 [target.'cfg(target_os = "espidf")'.dependencies]
 esp-idf-sys = { version = "0.31", default-features = false, features = ["std", "binstart", "native"] }
 
+#  [build-dependencies]
+#  build-tools = { path = "common/build-tools" }
 [build-dependencies]
-build-tools = { path = "common/build-tools" }
+bindgen = { version = "0.60.0", default-features = false }
+cc = "1"
 
 [dependencies.serde]
 version = "1"
@@ -47,9 +52,9 @@ default = ["dir-entry-path", "serde"]
 # use experimental closure-based API
 dir-entry-path = []
 # enable assertions in backend C code
-ll-assertions = ["littlefs2-sys/assertions"]
+#  ll-assertions = ["littlefs2-sys/assertions"]
 # enable trace in backend C code
-ll-trace = ["littlefs2-sys/trace"]
+#  ll-trace = ["littlefs2-sys/trace"]
 c-stubs = []
 
 log-all = []
