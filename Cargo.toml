@@ -22,10 +22,10 @@ default-features = false
 version = "0.2"
 
 # TODO: not sure if I should use a version here when the dependency is determined by a branch.
-#  [dependencies.littlefs2-sys]
-#  version = "0.1.6"
-[dependencies.littlefs-sys]
-version = "0.1.0"
+[dependencies.littlefs2-sys]
+version = "0.1.6"
+#  [dependencies.littlefs-sys]
+#  version = "0.1.0"
 
 [target.'cfg(target_os = "espidf")'.dependencies]
 esp-idf-sys = { version = "0.31", default-features = false, features = ["std", "binstart", "native"] }
