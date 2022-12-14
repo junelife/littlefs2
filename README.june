@@ -1,0 +1,3 @@
+Added the metadata_max member to the Allocation struct to track a change in the
+upstream littlefs package.
+

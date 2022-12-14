@@ -109,6 +109,7 @@ impl<Storage: driver::Storage> Allocation<Storage> {
         assert!(attr_max <= 1_022);
         // limitation of ll-bindings
         assert!(attr_max == 1_022);
+        let metadata_max = 0;
 
         let config = ll::lfs_config {
             context: core::ptr::null_mut(),
@@ -135,6 +136,7 @@ impl<Storage: driver::Storage> Allocation<Storage> {
             name_max: filename_max_plus_one.wrapping_sub(1),
             file_max,
             attr_max,
+            metadata_max,
         };
 
         Self {
